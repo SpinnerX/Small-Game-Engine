@@ -1,2 +1,2 @@
 # Small-Game-Engine
-Small flappy bird game utilzing my game engine that I wrote using C++'s OpenGL rendering APIs
+Small rocket game that utilizes basic flappy bird mechancis for testing the Game Engine, I am currently building.
