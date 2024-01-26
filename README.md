@@ -1,5 +1,5 @@
 # Small-Game-Engine
-* Small rocket game that utilizes basic flappy bird and the rockets in geometry dash mechanics for testing my Game Engine, \
+* Small rocket game that utilizes basic flappy bird and the rockets in geometry dash mechanics for testing my Game Engine
 * In the engine's current state at the time of creating this game, the engine does not have physics \
   simulator, particle systems, and post-processing.
 * Had to implement a much quicker and easier route for those implementations.
