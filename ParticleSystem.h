@@ -1,5 +1,6 @@
 #pragma once
-#include <GameEngine/Core/GameEngine.h>
+#include <glm/glm.hpp>
+#include <vector>
 
 struct ParticleProps{
 	glm::vec2 pos;

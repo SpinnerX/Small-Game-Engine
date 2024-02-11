@@ -1,5 +1,5 @@
 #include "ParticleSystem.h"
-#include "Renderer/Renderer2D.h"
+#include <GameEngine/Renderer/Renderer2D.h>
 #include "Random.h"
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/compatibility.hpp>
@@ -67,4 +67,3 @@ void ParticleSystem::onRender(){
 		RendererEngine::Renderer2D::drawRotatedQuad(particle.pos, {size, size}, particle.rotation, color);
 	}
 }
-

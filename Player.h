@@ -1,37 +1,41 @@
 #pragma once
+#include <GameEngine/Core/Timestep.h>
+#include <GameEngine/Renderer/Texture.h>
 #include "ParticleSystem.h"
-#include <GameEngine/Core/GameEngine.h>
 
 class Player{
 public:
 	Player();
-	
+
 	void loadAssets();
-	
+
 	void onUpdate(RendererEngine::Timestep ts);
+
 	void onRender();
 
 	void onImguiRender();
 
 	void reset();
 
-	float getRotation() { return _velocity.y * 4.0f - 90.0f; }
-	const glm::vec2& getPosition() const { return _position; }
+	float getRotation() { return velocity.y * 4.0f - 90.0f; }
 
-	uint32_t getScore() const { return (uint32_t)(_position.x + 10.0f) / 10.0f; }
+	const glm::vec2& getPosition() const { return pos; }
+
+	uint32_t getScore() const { return (uint32_t)(pos.x + 10.0f) / 10.0f; }
 
 private:
-	glm::vec2 _position = {-10.f, 0.f}; // player position
-	glm::vec2 _velocity = {5.f, 0.f};
+	glm::vec2 pos = {-10.0f, 0.f};
+	glm::vec2 velocity = {5.f, 0.f};
 	
-	float _enginePower = 0.5f;
-	float _gravity = 0.8f;
-	float _time = 0.0f;
-	float _smokeInterval = 0.4f;
-	float _smokeNextEmitTime = _smokeInterval;
+	float enginePower = 0.5f;
+	float gravity = 0.8f;
+	float time = 0.0f;
+	float smokeInterval = 0.4f;
+	float smokeNextEmitTime = smokeInterval;
 
-	RendererEngine::Ref<RendererEngine::Texture2D> _shipTexture;
+	RendererEngine::Ref<RendererEngine::Texture2D> shipTexture;
 
-	ParticleProps _smokeProps, _engineParticles; // Particle Props that is smoke, and for flames
-	ParticleSystem _particlesSystem;
+	ParticleProps smokeProps, engineParticles; // Particle Props that is smoke, and for flames
+	ParticleSystem particlesSystem;
 };
+

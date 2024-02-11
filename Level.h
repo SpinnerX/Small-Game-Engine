@@ -1,6 +1,7 @@
 #pragma once
-#include "Core/Timestep.h"
+#include <glm/glm.hpp>
 #include "Player.h"
+#include <vector>
 
 struct Pillar{
 
@@ -23,7 +24,7 @@ public:
 
 	void onImguiRender();
 
-	Player& getPlayer() { return _player; }
+	Player& getPlayer() { return player; }
 
 private:
 	void CreatePillar(int index, float offset);
@@ -31,11 +32,11 @@ private:
 	void gameOver();
 
 private:
-	Player _player;
-	std::vector<Pillar> _pillars;
-	std::vector<glm::vec2> _points;
-	float _pillarTarget = 30.0f;
-	int _pillarIndex = 0;
-	glm::vec3 _pillarHSV = {0.0f, 0.8f, 0.8f};
-	RendererEngine::Ref<RendererEngine::Texture2D> _triangleTexture;
+	Player player;
+	std::vector<Pillar> pillars;
+	std::vector<glm::vec2> points;
+	float pillarTarget = 30.0f;
+	int pillarIndex = 0;
+	glm::vec3 pillarHSV = {0.0f, 0.8f, 0.8f};
+	RendererEngine::Ref<RendererEngine::Texture2D> triangleTexture;
 };

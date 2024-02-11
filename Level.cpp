@@ -1,11 +1,9 @@
 #include "Level.h"
-#include "Core/Timestep.h"
 #include "Color.h"
-#include "Renderer/Renderer2D.h"
-#include "Renderer/Texture.h"
-#include <glm/gtc/matrix_transform.hpp>
+#include <GameEngine/Renderer/RenderCommand.h>
+#include <GameEngine/Renderer/Renderer2D.h>
 #include "Random.h"
-#include "imgui.h"
+#include <glm/gtc/matrix_transform.hpp>
 using namespace RendererEngine;
 
 // HSV to RGB gives us that glowing effect on our triangles
@@ -72,39 +70,39 @@ Level::Level(){
 }
 
 void Level::init(){
-	_triangleTexture = Texture2D::Create("assets/textures/Triangle.png");
-	_player.loadAssets();
+	triangleTexture = Texture2D::Create("assets/RocketGameAssets/textures/Triangle.png");
+	player.loadAssets();
 
-	_pillars.resize(5);
+	pillars.resize(5);
 	for(int i = 0; i < 5; i++){
 		CreatePillar(i, i * 10.0f);
 	}
 }
 
-void Level::onUpdate(RendererEngine::Timestep ts){
-	_player.onUpdate(ts);
+void Level::onUpdate(Timestep ts){
+	player.onUpdate(ts);
 
 	if(collisionTest()){
 		gameOver();
 		return;
 	}
 
-	_pillarHSV.x += 0.1f * ts;
-	if(_pillarHSV.x > 1.0f){
-		_pillarHSV.x = 0.0f;
+	pillarHSV.x += 0.1f * ts;
+	if(pillarHSV.x > 1.0f){
+		pillarHSV.x = 0.0f;
 	}
 
 
-	if(_player.getPosition().x > _pillarTarget){
-		CreatePillar(_pillarIndex, _pillarTarget + 20.0f);
-		_pillarIndex = ++_pillarIndex % _pillars.size();
-		_pillarTarget += 10.0f;
+	if(player.getPosition().x > pillarTarget){
+		CreatePillar(pillarIndex, pillarTarget + 20.0f);
+		pillarIndex = ++pillarIndex % pillars.size();
+		pillarTarget += 10.0f;
 	}
 }
 
 void Level::onRender(){
-	const auto& playerPos = _player.getPosition();
-	glm::vec4 color = HSVtoRGB(_pillarHSV);
+	const auto& playerPos = player.getPosition();
+	glm::vec4 color = HSVtoRGB(pillarHSV);
 	
 	// Draw background
 	Renderer2D::drawQuad({ playerPos.x, 0.0f, -0.8f }, { 50.0f, 50.0f }, { 0.3f, 0.3f, 0.3f, 1.0f });
@@ -114,21 +112,21 @@ void Level::onRender(){
 	Renderer2D::drawQuad({playerPos.x, -34.0f}, {50.0f, 50.0f}, color);
 	
 	// Rendering the pillars
-	for(auto& p : _pillars){
-		Renderer2D::drawRotatedQuad(p.topPosition, p.topScale, glm::radians(180.0f), _triangleTexture, 1.0f, color);
-		Renderer2D::drawQuad(p.bottomPosition, p.bottomScale, _triangleTexture, 1.0, color);
+	for(auto& p : pillars){
+		Renderer2D::drawRotatedQuad(p.topPosition, p.topScale, glm::radians(180.0f), triangleTexture, 1.0f, color);
+		Renderer2D::drawQuad(p.bottomPosition, p.bottomScale, triangleTexture, 1.0, color);
 	}
 
-	_player.onRender();
-	_points.clear();
+	player.onRender();
+	points.clear();
 }
 
 void Level::onImguiRender(){
-	_player.onImguiRender();
+	player.onImguiRender();
 }
 
 void Level::CreatePillar(int index, float offset){
-	Pillar& pillar = _pillars[index];
+	Pillar& pillar = pillars[index];
 	pillar.topPosition.x = offset;
 	pillar.bottomPosition.x = offset;
 
@@ -144,7 +142,6 @@ void Level::CreatePillar(int index, float offset){
 }
 
 bool Level::collisionTest(){
-	
 	glm::vec4 playerVertices[4] = {
 		{-0.5f, -0.5f, 0.0f, 1.0f},
 		{0.5f, -0.5f, 0.0f, 1.0f},
@@ -152,12 +149,12 @@ bool Level::collisionTest(){
 		{-0.5f,  0.5f, 0.0f, 1.0f}
 	};
 	
-	auto& pos = _player.getPosition();
+	auto& pos = player.getPosition();
 	glm::vec4 playerTransformedVertices[4];
 	
 	for(int i = 0; i < 4; i++){
 		playerTransformedVertices[i] = glm::translate(glm::mat4(1.0f), {pos.x, pos.y, 0.0f}) 
-									   * glm::rotate(glm::mat4(1.0f), glm::radians(_player.getRotation()), {0.0f, 0.0f, 1.0f})
+									   * glm::rotate(glm::mat4(1.0f), glm::radians(player.getRotation()), {0.0f, 0.0f, 1.0f})
 									   * glm::scale(glm::mat4(1.0f), {1.0f, 1.3f, 1.0f}) 
 									   * playerVertices[i];
 	
@@ -167,10 +164,10 @@ bool Level::collisionTest(){
 	glm::vec4 pillarVertices[4] = {
 		{-0.5f + 0.1f, -0.5f + 0.1f, 0.0f, 1.0f},
 		{0.5f - 0.1f, -0.5f + 0.1f, 0.0f, 1.0f},
-		{0.5 + 0.0f, 0.5f - 0.1f, 0.0f, 1.0f},
+		{0.0 + 0.0f, 0.5f - 0.1f, 0.0f, 1.0f},
 	};
 	
-	for(auto& p : _pillars){
+	for(auto& p : pillars){
 		glm::vec2 tri[3];
 
 		// Top pillars
@@ -203,10 +200,11 @@ bool Level::collisionTest(){
 	return false;
 }
 
+
 void Level::gameOver(){
-	_player.reset();
-	_pillarTarget = 30.0f;
-	_pillarIndex = 0.0f;
+	player.reset();
+	pillarTarget = 30.0f;
+	pillarIndex = 0.0f;
 
 	for(int i = 0; i < 5; i++){
 		CreatePillar(i, i * 10.0f);
