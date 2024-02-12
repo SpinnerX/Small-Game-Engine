@@ -70,7 +70,7 @@ Level::Level(){
 }
 
 void Level::init(){
-	triangleTexture = Texture2D::Create("assets/RocketGameAssets/textures/Triangle.png");
+	triangleTexture = Texture2D::Create("assets/textures/Triangle.png");
 	player.loadAssets();
 
 	pillars.resize(5);
