@@ -1,8 +1,10 @@
+#include <Engine3D/Engine3DPrecompiledHeader.h>
 #include "Player.h"
 #include <imgui/imgui.h>
-#include <GameEngine/Renderer/Renderer2D.h>
+#include <Engine3D/Renderer2D/Renderer2D.h>
 #include <glm/gtc/matrix_transform.hpp>
-using namespace RendererEngine;
+
+using namespace Engine3D;
 
 Player::Player(){
 	// smoke particles
@@ -28,12 +30,12 @@ void Player::loadAssets(){
 	shipTexture = Texture2D::Create("assets/textures/Ship.png");
 }
 
-void Player::onUpdate(RendererEngine::Timestep ts){
+void Player::onUpdate(Engine3D::Timestep ts){
 	time += ts;
 
 	// This is simply just a very basic way of handling physics mechanics
 	// Just have velocity and gravity.
-	if(InputPoll::isKeyPressed(RENDER_KEY_SPACE)){
+	if(InputPoll::isKeyPressed(ENGINE_KEY_SPACE)){
 		velocity.y += enginePower;
 
 		if(velocity.y < 0.0f){
@@ -68,7 +70,7 @@ void Player::onUpdate(RendererEngine::Timestep ts){
 }
 
 void Player::onRender(){
-	RendererEngine::Renderer2D::drawRotatedQuad({pos.x, pos.y, 0.5f}, {1.0f, 1.3f}, glm::radians(getRotation()), shipTexture);
+	Engine3D::Renderer2D::drawRotatedQuad({pos.x, pos.y, 0.5f}, {1.0f, 1.3f}, glm::radians(getRotation()), shipTexture);
 	particlesSystem.onRender();
 }
 

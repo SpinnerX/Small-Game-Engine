@@ -1,0 +1,38 @@
+[
+{
+  "directory": "/Users/aaronher/Desktop/Rocket-Game/Debug",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -isystem /usr/local/include -isystem /opt/homebrew/include -isystem /opt/homebrew/lib -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk -F/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/System/Library/Frameworks  -fsanitize=address -o CMakeFiles/Rocket-Game.dir/main.cpp.o -c /Users/aaronher/Desktop/Rocket-Game/main.cpp",
+  "file": "/Users/aaronher/Desktop/Rocket-Game/main.cpp",
+  "output": "CMakeFiles/Rocket-Game.dir/main.cpp.o"
+},
+{
+  "directory": "/Users/aaronher/Desktop/Rocket-Game/Debug",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -isystem /usr/local/include -isystem /opt/homebrew/include -isystem /opt/homebrew/lib -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk -F/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/System/Library/Frameworks  -fsanitize=address -o CMakeFiles/Rocket-Game.dir/GameLayer.cpp.o -c /Users/aaronher/Desktop/Rocket-Game/GameLayer.cpp",
+  "file": "/Users/aaronher/Desktop/Rocket-Game/GameLayer.cpp",
+  "output": "CMakeFiles/Rocket-Game.dir/GameLayer.cpp.o"
+},
+{
+  "directory": "/Users/aaronher/Desktop/Rocket-Game/Debug",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -isystem /usr/local/include -isystem /opt/homebrew/include -isystem /opt/homebrew/lib -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk -F/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/System/Library/Frameworks  -fsanitize=address -o CMakeFiles/Rocket-Game.dir/Level.cpp.o -c /Users/aaronher/Desktop/Rocket-Game/Level.cpp",
+  "file": "/Users/aaronher/Desktop/Rocket-Game/Level.cpp",
+  "output": "CMakeFiles/Rocket-Game.dir/Level.cpp.o"
+},
+{
+  "directory": "/Users/aaronher/Desktop/Rocket-Game/Debug",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -isystem /usr/local/include -isystem /opt/homebrew/include -isystem /opt/homebrew/lib -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk -F/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/System/Library/Frameworks  -fsanitize=address -o CMakeFiles/Rocket-Game.dir/ParticleSystem.cpp.o -c /Users/aaronher/Desktop/Rocket-Game/ParticleSystem.cpp",
+  "file": "/Users/aaronher/Desktop/Rocket-Game/ParticleSystem.cpp",
+  "output": "CMakeFiles/Rocket-Game.dir/ParticleSystem.cpp.o"
+},
+{
+  "directory": "/Users/aaronher/Desktop/Rocket-Game/Debug",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -isystem /usr/local/include -isystem /opt/homebrew/include -isystem /opt/homebrew/lib -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk -F/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/System/Library/Frameworks  -fsanitize=address -o CMakeFiles/Rocket-Game.dir/Player.cpp.o -c /Users/aaronher/Desktop/Rocket-Game/Player.cpp",
+  "file": "/Users/aaronher/Desktop/Rocket-Game/Player.cpp",
+  "output": "CMakeFiles/Rocket-Game.dir/Player.cpp.o"
+},
+{
+  "directory": "/Users/aaronher/Desktop/Rocket-Game/Debug",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -isystem /usr/local/include -isystem /opt/homebrew/include -isystem /opt/homebrew/lib -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk -F/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/System/Library/Frameworks  -fsanitize=address -o CMakeFiles/Rocket-Game.dir/Random.cpp.o -c /Users/aaronher/Desktop/Rocket-Game/Random.cpp",
+  "file": "/Users/aaronher/Desktop/Rocket-Game/Random.cpp",
+  "output": "CMakeFiles/Rocket-Game.dir/Random.cpp.o"
+}
+]

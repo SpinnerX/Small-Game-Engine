@@ -1,10 +1,10 @@
 #include "Level.h"
 #include "Color.h"
-#include <GameEngine/Renderer/RenderCommand.h>
-#include <GameEngine/Renderer/Renderer2D.h>
+#include <Engine3D/Renderer2D/RenderCommand.h>
+#include <Engine3D/Renderer2D/Renderer2D.h>
 #include "Random.h"
 #include <glm/gtc/matrix_transform.hpp>
-using namespace RendererEngine;
+using namespace Engine3D;
 
 // HSV to RGB gives us that glowing effect on our triangles
 static glm::vec4 HSVtoRGB(const glm::vec3& hsv) {

@@ -1,6 +1,7 @@
 #pragma once
 #include <glm/glm.hpp>
 #include <vector>
+#include <Engine3D/Core/Timestep.h>
 
 struct ParticleProps{
 	glm::vec2 pos;
@@ -16,7 +17,7 @@ public:
 
 	void emit(const ParticleProps& particleProps);
 
-	void onUpdate(RendererEngine::Timestep ts);
+	void onUpdate(Engine3D::Timestep ts);
 
 	void onRender();
 

@@ -18,7 +18,7 @@ public:
 		
 	void init();
 
-	void onUpdate(RendererEngine::Timestep ts);
+	void onUpdate(Engine3D::Timestep ts);
 
 	void onRender();
 
@@ -38,5 +38,5 @@ private:
 	float pillarTarget = 30.0f;
 	int pillarIndex = 0;
 	glm::vec3 pillarHSV = {0.0f, 0.8f, 0.8f};
-	RendererEngine::Ref<RendererEngine::Texture2D> triangleTexture;
+	Engine3D::Ref<Engine3D::Texture2D> triangleTexture;
 };

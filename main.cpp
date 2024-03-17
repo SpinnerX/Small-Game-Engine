@@ -1,16 +1,16 @@
 #include "GameLayer.h"
-#include <GameEngine/Core/Application.h>
-#include <GameEngine/Core/EntryPoint.h>
+#include <Engine3D/Core/Application.h>
+#include <Engine3D/Core/EntryPoint.h>
 
-class Game : public  RendererEngine::Application{
+class Game : public  Engine3D::Application{
 public:
-	Game(RendererEngine::ApplicationCommandLineArgs args) : Application("Game", args) {
+	Game(Engine3D::ApplicationCommandLineArgs args) : Application("Game", args) {
 		pushLayer(new GameLayer());
 	}
 };
 
 
-RendererEngine::Application* RendererEngine::CreateApplication(ApplicationCommandLineArgs args){
+Engine3D::Application* Engine3D::CreateApplication(ApplicationCommandLineArgs args){
 	return new Game(args);
 }
 

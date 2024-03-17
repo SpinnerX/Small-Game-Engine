@@ -1,0 +1,73 @@
+{
+	"cmake" : 
+	{
+		"generator" : 
+		{
+			"multiConfig" : false,
+			"name" : "Unix Makefiles"
+		},
+		"paths" : 
+		{
+			"cmake" : "/opt/homebrew/lib/python3.11/site-packages/cmake/data/bin/cmake",
+			"cpack" : "/opt/homebrew/lib/python3.11/site-packages/cmake/data/bin/cpack",
+			"ctest" : "/opt/homebrew/lib/python3.11/site-packages/cmake/data/bin/ctest",
+			"root" : "/opt/homebrew/lib/python3.11/site-packages/cmake/data/share/cmake-3.27"
+		},
+		"version" : 
+		{
+			"isDirty" : false,
+			"major" : 3,
+			"minor" : 27,
+			"patch" : 7,
+			"string" : "3.27.7",
+			"suffix" : ""
+		}
+	},
+	"objects" : 
+	[
+		{
+			"jsonFile" : "codemodel-v2-4811975784bf9ef212f7.json",
+			"kind" : "codemodel",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 6
+			}
+		}
+	],
+	"reply" : 
+	{
+		"client-vim-cmake" : 
+		{
+			"query.json" : 
+			{
+				"client" : 
+				{
+					"query" : 
+					{
+						"version" : 1
+					}
+				},
+				"requests" : 
+				[
+					{
+						"kind" : "codemodel",
+						"version" : 2
+					}
+				],
+				"responses" : 
+				[
+					{
+						"jsonFile" : "codemodel-v2-4811975784bf9ef212f7.json",
+						"kind" : "codemodel",
+						"version" : 
+						{
+							"major" : 2,
+							"minor" : 6
+						}
+					}
+				]
+			}
+		}
+	}
+}

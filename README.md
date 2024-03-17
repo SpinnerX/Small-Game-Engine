@@ -8,3 +8,6 @@
 
 https://github.com/SpinnerX/Rocket-Game/assets/56617292/e679bf7d-ee27-47d9-a011-7670a557ce38
 
+## CMake Commands
+* Running cmake ` cmake -S . -B Debug`
+* Then run the makefile by doing, `cmake --build Debug`

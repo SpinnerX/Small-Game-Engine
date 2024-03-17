@@ -1,13 +1,13 @@
 #include "GameLayer.h"
-#include <GameEngine/Core/Application.h>
-#include <GameEngine/Renderer/RenderCommand.h>
-#include <GameEngine/Renderer/Renderer2D.h>
+#include <Engine3D/Core/Application.h>
+#include <Engine3D/Renderer2D/RenderCommand.h>
+#include <Engine3D/Renderer2D/Renderer2D.h>
 #include "Random.h"
-using namespace RendererEngine;
+using namespace Engine3D;
 
 GameLayer::GameLayer() : Layer("Game Layer"){
 	auto& window = Application::Get().GetWindow();
-	createCamera(window.getWidth(), window.getHeight());
+	createCamera(window.GetWidth(), window.GetHeight());
 	Random::init();
 }
 
@@ -66,8 +66,8 @@ void GameLayer::onImguiRender(){
 		case GameState::MainMenu:
 			{
 				auto pos = ImGui::GetWindowPos();
-				auto width = Application::Get().GetWindow().getWidth();
-				auto height = Application::Get().GetWindow().getHeight();
+				auto width = Application::Get().GetWindow().GetWidth();
+				auto height = Application::Get().GetWindow().GetHeight();
 				pos.x += width * 0.5f - 300.0f;
 				pos.y += 50.0f;
 				if(blink)
@@ -81,9 +81,9 @@ void GameLayer::onImguiRender(){
 
 
 void GameLayer::onEvent(Event& event){
-	RendererEngine::EventDispatcher dispatcher(event);
-	dispatcher.Dispatch<RendererEngine::WindowResizeEvent>(bind_function(this, &GameLayer::onWindowResize));
-	dispatcher.Dispatch<RendererEngine::MouseButtonPressedEvent>(bind_function(this, &GameLayer::onMouseButtonPressed));
+	Engine3D::EventDispatcher dispatcher(event);
+	dispatcher.Dispatch<Engine3D::WindowResizeEvent>(bind_function(this, &GameLayer::onWindowResize));
+	dispatcher.Dispatch<Engine3D::MouseButtonPressedEvent>(bind_function(this, &GameLayer::onMouseButtonPressed));
 }
 
 bool GameLayer::onMouseButtonPressed(MouseButtonPressedEvent& event){
@@ -105,5 +105,5 @@ void GameLayer::createCamera(uint32_t w, uint32_t h){
 	float left = bottom * aspectRatio;
 	float right = top * aspectRatio;
 
-	camera = CreateScope<RendererEngine::OrthographicCamera>(left, right, bottom, top);
+	camera = CreateScope<Engine3D::OrthographicCamera>(left, right, bottom, top);
 }

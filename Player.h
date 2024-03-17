@@ -1,6 +1,6 @@
 #pragma once
-#include <GameEngine/Core/Timestep.h>
-#include <GameEngine/Renderer/Texture.h>
+#include <Engine3D/Core/Timestep.h>
+#include <Engine3D/interfaces/Texture.h>
 #include "ParticleSystem.h"
 
 class Player{
@@ -9,7 +9,7 @@ public:
 
 	void loadAssets();
 
-	void onUpdate(RendererEngine::Timestep ts);
+	void onUpdate(Engine3D::Timestep ts);
 
 	void onRender();
 
@@ -33,7 +33,7 @@ private:
 	float smokeInterval = 0.4f;
 	float smokeNextEmitTime = smokeInterval;
 
-	RendererEngine::Ref<RendererEngine::Texture2D> shipTexture;
+	Engine3D::Ref<Engine3D::Texture2D> shipTexture;
 
 	ParticleProps smokeProps, engineParticles; // Particle Props that is smoke, and for flames
 	ParticleSystem particlesSystem;

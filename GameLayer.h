@@ -1,9 +1,12 @@
 #pragma once
-#include <GameEngine/Core/Layer.h>
+#include <Engine3D/Core/Layer.h>
 #include "Level.h"
 #include <imgui/imgui.h>
+#include <Engine3D/Events/KeyEvent.h>
+#include <Engine3D/Events/MouseEvent.h>
+#include <Engine3D/Renderer2D/OrthographicCamera.h>
 
-class GameLayer : public RendererEngine::Layer{
+class GameLayer : public Engine3D::Layer{
 public:
 	GameLayer();
 
@@ -11,20 +14,20 @@ public:
 
 	virtual void onDetach() override;
 
-	virtual void onUpdate(RendererEngine::Timestep ts) override;
+	virtual void onUpdate(Engine3D::Timestep ts) override;
 
 	virtual void onImguiRender() override;
 
-	virtual void onEvent(RendererEngine::Event& event) override;
+	virtual void onEvent(Engine3D::Event& event) override;
 
-	bool onMouseButtonPressed(RendererEngine::MouseButtonPressedEvent& event);
-	bool onWindowResize(RendererEngine::WindowResizeEvent& event);
+	bool onMouseButtonPressed(Engine3D::MouseButtonPressedEvent& event);
+	bool onWindowResize(Engine3D::WindowResizeEvent& event);
 
 private:
 	void createCamera(uint32_t w, uint32_t h);
 
 private:
-	RendererEngine::Scope<RendererEngine::OrthographicCamera> camera;
+	Engine3D::Scope<Engine3D::OrthographicCamera> camera;
 	Level level;
 	ImFont* font;
 

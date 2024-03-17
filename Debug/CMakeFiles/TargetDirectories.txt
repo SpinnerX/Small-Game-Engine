@@ -1,0 +1,3 @@
+/Users/aaronher/Desktop/Rocket-Game/Debug/CMakeFiles/Rocket-Game.dir
+/Users/aaronher/Desktop/Rocket-Game/Debug/CMakeFiles/edit_cache.dir
+/Users/aaronher/Desktop/Rocket-Game/Debug/CMakeFiles/rebuild_cache.dir
