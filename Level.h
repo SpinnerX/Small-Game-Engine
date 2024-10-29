@@ -18,11 +18,11 @@ public:
 		
 	void init();
 
-	void onUpdate(Engine3D::Timestep ts);
+	void OnUpdate(Engine3D::Timestep ts);
 
 	void onRender();
 
-	void onImguiRender();
+	void OnUIRender();
 
 	Player& getPlayer() { return player; }
 

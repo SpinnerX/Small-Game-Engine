@@ -1,5 +1,4 @@
 #include "Level.h"
-#include "Color.h"
 #include <Engine3D/Renderer2D/RenderCommand.h>
 #include <Engine3D/Renderer2D/Renderer2D.h>
 #include "Random.h"
@@ -79,8 +78,8 @@ void Level::init(){
 	}
 }
 
-void Level::onUpdate(Timestep ts){
-	player.onUpdate(ts);
+void Level::OnUpdate(Timestep ts){
+	player.OnUpdate(ts);
 
 	if(collisionTest()){
 		gameOver();
@@ -105,24 +104,24 @@ void Level::onRender(){
 	glm::vec4 color = HSVtoRGB(pillarHSV);
 	
 	// Draw background
-	Renderer2D::drawQuad({ playerPos.x, 0.0f, -0.8f }, { 50.0f, 50.0f }, { 0.3f, 0.3f, 0.3f, 1.0f });
+	Renderer2D::DrawQuad({ playerPos.x, 0.0f, -0.8f }, { 50.0f, 50.0f }, { 0.3f, 0.3f, 0.3f, 1.0f });
 
 	// Floor and Ceiling
-	Renderer2D::drawQuad({playerPos.x, 34.0f}, {50.0f, 50.0f}, color);
-	Renderer2D::drawQuad({playerPos.x, -34.0f}, {50.0f, 50.0f}, color);
+	Renderer2D::DrawQuad({playerPos.x, 34.0f}, {50.0f, 50.0f}, color);
+	Renderer2D::DrawQuad({playerPos.x, -34.0f}, {50.0f, 50.0f}, color);
 	
 	// Rendering the pillars
 	for(auto& p : pillars){
-		Renderer2D::drawRotatedQuad(p.topPosition, p.topScale, glm::radians(180.0f), triangleTexture, 1.0f, color);
-		Renderer2D::drawQuad(p.bottomPosition, p.bottomScale, triangleTexture, 1.0, color);
+		Renderer2D::DrawRotatedQuad(p.topPosition, p.topScale, glm::radians(180.0f), triangleTexture, 1.0f, color);
+		Renderer2D::DrawQuad(p.bottomPosition, p.bottomScale, triangleTexture, 1.0, color);
 	}
 
 	player.onRender();
 	points.clear();
 }
 
-void Level::onImguiRender(){
-	player.onImguiRender();
+void Level::OnUIRender(){
+	player.OnUIRender();
 }
 
 void Level::CreatePillar(int index, float offset){

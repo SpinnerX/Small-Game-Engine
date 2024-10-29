@@ -1,6 +1,6 @@
 #pragma once
 #include <Engine3D/Core/Timestep.h>
-#include <Engine3D/interfaces/Texture.h>
+#include <Engine3D/Graphics/Texture.h>
 #include "ParticleSystem.h"
 
 class Player{
@@ -9,11 +9,11 @@ public:
 
 	void loadAssets();
 
-	void onUpdate(Engine3D::Timestep ts);
+	void OnUpdate(Engine3D::Timestep ts);
 
 	void onRender();
 
-	void onImguiRender();
+	void OnUIRender();
 
 	void reset();
 

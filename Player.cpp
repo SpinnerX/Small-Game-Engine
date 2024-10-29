@@ -30,12 +30,12 @@ void Player::loadAssets(){
 	shipTexture = Texture2D::Create("assets/textures/Ship.png");
 }
 
-void Player::onUpdate(Engine3D::Timestep ts){
+void Player::OnUpdate(Engine3D::Timestep ts){
 	time += ts;
 
 	// This is simply just a very basic way of handling physics mechanics
 	// Just have velocity and gravity.
-	if(InputPoll::isKeyPressed(ENGINE_KEY_SPACE)){
+	if(InputPoll::IsKeyPressed(ENGINE_KEY_SPACE)){
 		velocity.y += enginePower;
 
 		if(velocity.y < 0.0f){
@@ -66,15 +66,15 @@ void Player::onUpdate(Engine3D::Timestep ts){
 		smokeNextEmitTime += 0.1f;
 	}
 
-	particlesSystem.onUpdate(ts);
+	particlesSystem.OnUpdate(ts);
 }
 
 void Player::onRender(){
-	Engine3D::Renderer2D::drawRotatedQuad({pos.x, pos.y, 0.5f}, {1.0f, 1.3f}, glm::radians(getRotation()), shipTexture);
+	Engine3D::Renderer2D::DrawRotatedQuad({pos.x, pos.y, 0.5f}, {1.0f, 1.3f}, glm::radians(getRotation()), shipTexture);
 	particlesSystem.onRender();
 }
 
-void Player::onImguiRender(){
+void Player::OnUIRender(){
 	ImGui::DragFloat("Engine Power", &enginePower, 0.1f);
 	ImGui::DragFloat("Gravity", &gravity, 0.1f);
 }

@@ -1,24 +1,25 @@
 #pragma once
 #include <Engine3D/Core/Layer.h>
 #include "Level.h"
+#include <Engine3D/Event/ApplicationEvent.h>
 #include <imgui/imgui.h>
-#include <Engine3D/Events/KeyEvent.h>
-#include <Engine3D/Events/MouseEvent.h>
+#include <Engine3D/Event/KeyEvent.h>
+#include <Engine3D/Event/MouseEvent.h>
 #include <Engine3D/Renderer2D/OrthographicCamera.h>
 
 class GameLayer : public Engine3D::Layer{
 public:
 	GameLayer();
 
-	virtual void onAttach() override;
+	virtual void OnAttach() override;
 
-	virtual void onDetach() override;
+	virtual void OnDetach() override;
 
-	virtual void onUpdate(Engine3D::Timestep ts) override;
+	virtual void OnUpdate(Engine3D::Timestep ts) override;
 
-	virtual void onImguiRender() override;
+	virtual void OnUIRender() override;
 
-	virtual void onEvent(Engine3D::Event& event) override;
+	virtual void OnEvent(Engine3D::Event& event) override;
 
 	bool onMouseButtonPressed(Engine3D::MouseButtonPressedEvent& event);
 	bool onWindowResize(Engine3D::WindowResizeEvent& event);

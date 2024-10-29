@@ -34,7 +34,7 @@ void ParticleSystem::emit(const ParticleProps& particleProps){
 	_particlePoolIndex = ++_particlePoolIndex % _particlesPool.size();
 }
 
-void ParticleSystem::onUpdate(Engine3D::Timestep ts){
+void ParticleSystem::OnUpdate(Engine3D::Timestep ts){
 	for(auto& particle : _particlesPool){
 		if(!particle.isActive) continue;
 		
@@ -64,6 +64,6 @@ void ParticleSystem::onRender(){
 		color.a = color.a * life;
 
 		float size = glm::lerp(particle.sizeEnd, particle.sizeBegin, life);
-		Engine3D::Renderer2D::drawRotatedQuad(particle.pos, {size, size}, particle.rotation, color);
+		Engine3D::Renderer2D::DrawRotatedQuad(particle.pos, {size, size}, particle.rotation, color);
 	}
 }

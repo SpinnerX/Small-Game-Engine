@@ -17,7 +17,7 @@ public:
 
 	void emit(const ParticleProps& particleProps);
 
-	void onUpdate(Engine3D::Timestep ts);
+	void OnUpdate(Engine3D::Timestep ts);
 
 	void onRender();
 
